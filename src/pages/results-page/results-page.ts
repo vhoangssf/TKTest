@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Chart } from 'chart.js';
-
+import { LobbyPage } from '../lobby-page/lobby-page';
 /**
  * Generated class for the ResultsPage page.
  *
@@ -22,29 +22,29 @@ export class ResultsPage {
   }
 
   ionViewDidLoad() {
-    console.log(this.navParams.get("test"));
-    console.log('ionViewDidLoad ResultsPage');
     this.test = this.navParams.get("test");
     this.showHome = this.navParams.get("showHome");
-    
-    //var avoiding = Math.round((test/12)*100)
-      this.barChart = new Chart(this.barCanvas.nativeElement, {
-        type: 'bar',
-        data: {
-          labels: [
+    console.log(this.navParams.get("test"));
+    console.log('ionViewDidLoad ResultsPage');
+    let labelResult = [
               'Avoiding',
               'Accommodating',
               'Compromising',
               'Competing',
               'Collaborating'
-            ],
+            ]
+    
+      this.barChart = new Chart(this.barCanvas.nativeElement, {
+        type: 'bar',
+        data: {
+          labels: labelResult, 
           datasets: [{
             data: [
-              this.test['data']['labels'[0]],
-              100,
-              100,
-              100,
-              100
+              Math.round( (this.test[labelResult[0]] / 12) * 100 ),
+              Math.round( (this.test[labelResult[1]] / 12) * 100 ),
+              Math.round( (this.test[labelResult[2]] / 12) * 100 ),
+              Math.round( (this.test[labelResult[3]] / 12) * 100 ),
+              Math.round( (this.test[labelResult[4]] / 12) * 100 ),
             ],
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',
@@ -81,5 +81,9 @@ export class ResultsPage {
         }
       });
   }
-
+  toLobby() {
+    this.navCtrl.setRoot(LobbyPage)  
+  }
+  
 }
+

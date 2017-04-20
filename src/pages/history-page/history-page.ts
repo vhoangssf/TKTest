@@ -26,7 +26,8 @@ export class HistoryPage {
   
   goToResult(test) {
     this.navCtrl.push(ResultsPage, {
-      test: test
+      test: test,
+      showHome: false
     });
   }
 }
