@@ -7,17 +7,23 @@ import { LobbyPage } from '../pages/lobby-page/lobby-page';
 import { QuestionPage } from '../pages/question-page/question-page';
 import { HistoryPage } from '../pages/history-page/history-page';
 import { ResultsPage } from '../pages/results-page/results-page';
+import { LandingPage } from '../pages/landing-page/landing-page';
+import { RegisterPage } from '../pages/register-page/register-page';
+import { LoginPage } from '../pages/login-page/login-page';
 import { MyApp } from './app.component';
 import { AppUser } from '../providers/app-user';
 import { Questions } from '../providers/questions';
-import { TestResults } from '../providers/testresults';
+import { TestResults } from '../providers/test-results';
 
 let injections: any[] = [
     MyApp,
     LobbyPage,
     QuestionPage,
     HistoryPage,
-    ResultsPage
+    ResultsPage,
+    LandingPage,
+    RegisterPage,
+    LoginPage
   ]
 
 @NgModule({
@@ -32,9 +38,9 @@ let injections: any[] = [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AppUser
+    AppUser,
     Questions,
-    //TestResults
+    TestResults
   ]
 })
 export class AppModule {}
