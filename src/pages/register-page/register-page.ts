@@ -3,8 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AppUser } from '../../providers/app-user';
 import { LobbyPage } from '../lobby-page/lobby-page';
 
-//import { Http } from '@angular/http';
-
 /**
  * Generated class for the RegisterPage page.
  *
@@ -28,7 +26,7 @@ export class RegisterPage {
    .subscribe(res => {
      // handle successful responses and decide what happens next
      window.localStorage.setItem('token', res.token);
-     window.localStorage.setItem('userId', res.id);
+     window.localStorage.setItem('userId', res.id);  
      this.navCtrl.setRoot(LobbyPage);
    }, error => {
      // inform the user of any known problems that arose, otherwise give a generic

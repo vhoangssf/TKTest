@@ -22,5 +22,12 @@ export class AppUser {
      this.baseUrl + this.path,
      newUserData
    );
- }
+  }
+  
+  login(UserData) {
+    return this.http.post(
+      this.baseUrl + this.path + "/login",
+      UserData
+  );
+  }
 }
