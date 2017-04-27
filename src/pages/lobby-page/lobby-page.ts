@@ -31,10 +31,12 @@ export class LobbyPage {
   }
   
   takeTest() {
+    console.log(QuestionPage);
     this.navCtrl.push(QuestionPage);  
   }
   
   myHistory() {
+    console.log(HistoryPage);
     this.navCtrl.push(HistoryPage);
   }
 
@@ -42,6 +44,8 @@ export class LobbyPage {
     this.appUser.logout(window.localStorage.token);
     this.navCtrl.setRoot(LandingPage);
     window.localStorage.token = null;
+    window.localStorage.userId = null;
+    console.log('User Log Out!');
   }
 
 }

@@ -14,5 +14,15 @@ export class Questions {
   constructor(public http: Http) {
     console.log('Hello Questions Provider');
   }
-
+  baseUrl: string ="http://sp-17-vincent-jbrownssf.c9users.io:8080/api/"
+  path: string = "/Questions"
+  
+  getQuestions() {
+    return this.http.get(
+      this.baseUrl + this.path
+      //+ 
+      // '?access_token=' + token,
+      // {}   
+      );
+  }
 }
