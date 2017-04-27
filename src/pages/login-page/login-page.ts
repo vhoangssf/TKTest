@@ -21,7 +21,7 @@ export class LoginPage {
       return alert("Please fill in all of the required fields.");
     }
     
-    this.appUser.register(this.user)
+    this.appUser.login(this.user)
     .map(res => res.json())
    .subscribe(res => {
      // handle successful responses and decide what happens next

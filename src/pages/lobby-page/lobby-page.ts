@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+
 import { QuestionPage } from '../question-page/question-page';
 import { HistoryPage } from '../history-page/history-page';
+import { LandingPage } from '../landing-page/landing-page';
+import { AppUser } from '../../providers/app-user';
 
 /**
  * Generated class for the LobbyPage page.
@@ -16,7 +19,11 @@ import { HistoryPage } from '../history-page/history-page';
 })
 export class LobbyPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public appUser: AppUser
+    ) {
   }
 
   ionViewDidLoad() {
@@ -29,6 +36,12 @@ export class LobbyPage {
   
   myHistory() {
     this.navCtrl.push(HistoryPage);
+  }
+
+  userLogout() {
+    this.appUser.logout(window.localStorage.token);
+    this.navCtrl.setRoot(LandingPage);
+    window.localStorage.token = null;
   }
 
 }
